@@ -18,6 +18,14 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('mobile')->unique();
+            $table->string('avatar');
+            $table->tinyInteger('is_active')->defalut(0);
+            $table->string('confirmation_token');
+            $table->string('wechat_id')->unique();
+            $table->string('wechat_name');
+            $table->tinyInteger('sex')->defalut(1);//1->male 2->female
+            $table->json('settings')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
