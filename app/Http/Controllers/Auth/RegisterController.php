@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Mail\Welcome;
+use App\Mail\VerifyUser;
 use App\User;
 use App\Http\Controllers\Controller;
 use Mail;
@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'avatar' => '/images/avatars/default.png'
         ]);
 
-        Mail::to($user)->send(new Welcome($user));
+        Mail::to($user)->send(new VerifyUser($user));
 
         return $user;
     }
